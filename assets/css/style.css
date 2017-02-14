@@ -1,0 +1,13 @@
+body {
+	background-image: url(../images/background.jpg);
+}
+
+.banner-image {
+	max-width: 100%;
+}
+
+.page-header h1 {
+	position: relative;
+	text-align: center;
+
+}

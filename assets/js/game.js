@@ -16,6 +16,7 @@ var hiddenCharacters = [];
 var numBlanks = 0;
 var blanks = [];
 var wrongGuesses = [];
+var userGuess = [""];
 var userInput = "";
 
 var lives = 10;
@@ -69,6 +70,7 @@ function comparesLetters(letter) {
             }
         }
     } else {
+        if (userInput === letter)
         lives --;
         wrongGuesses.push(letter)
     }
@@ -102,7 +104,26 @@ function
 
 document.onkeyup = function(event) {
     userInput = String.fromCharCode(event.keyCode).toUpperCase();
-    console.log("This is the letter we are typing", userInput);
-    comparesLetters(userInput);
+    console.log(userGuess);
+    console.log("This is the letter we are typing", userInput); 
+    comparesLetters(userInput); 
     roundComplete();
-}
+
+    //Come back to this to check for userInput does not equal guess input
+    // for (var i = 0; i < userGuess.length; i++) {
+    //     if (userGuess[i] === userInput) {
+    //         alert("Please input another letter");
+    //     } else {
+    //             userGuess.push(userInput);
+    //             console.log(userGuess);
+    //             console.log("This is the letter we are typing", userInput); 
+    //             comparesLetters(userInput); 
+    //             roundComplete();
+    //         }
+    //     }
+    }
+
+    console.log(userGuess)
+
+
+
