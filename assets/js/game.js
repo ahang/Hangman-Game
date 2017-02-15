@@ -23,8 +23,7 @@ var lives = 10;
 var wins = 0;
 var loseSound = new Audio("assets/audio/ohno.mp3");
 var winSound = new Audio("assets/audio/yay.mp3");
-
-
+var themeSound = new Audio("assets/audio/theme.mp3");
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //               FUNCTIONS            ~
@@ -35,7 +34,7 @@ Generates a random word and replaces them with underscores
 
 function startGame() {
     wrongGuesses = [];
-    console.log("This is the # of wrong guesses in startGame", wrongGuesses);
+    //console.log("This is the # of wrong guesses in startGame", wrongGuesses);
     lives = 10;
     blanks = [];
     userGuess = [];
@@ -43,8 +42,8 @@ function startGame() {
     randomCharacters = characters[Math.floor(Math.random() * characters.length)];
     hiddenCharacters = randomCharacters.split("");
     numBlanks = hiddenCharacters.length;
-    console.log(randomCharacters);
-    console.log(numBlanks);
+    //console.log(randomCharacters);
+    //console.log(numBlanks);
 
     for (var i = 0; i < numBlanks; i++) {
         blanks.push("_");
@@ -121,9 +120,14 @@ document.onkeyup = function(event) {
                 userGuess.push(userInput);
                 comparesLetters(userInput);
                 roundComplete();
+                if (wins > 3) {
+                    themeSound.play();
+                } if (wins > 5) {
+                    haloSound.play();
+                }
             }
     } else {
-        alert("Invalid Button Please use letters A-Z");
+        alert("Invalid Button Please use letters A-Z and 0-9");
     }
 }
 
