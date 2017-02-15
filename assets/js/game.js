@@ -21,7 +21,9 @@ var userInput = "";
 
 var lives = 10;
 var wins = 0;
-var loss = 1;
+var loseSound = new Audio("assets/audio/ohno.mp3");
+var winSound = new Audio("assets/audio/yay.mp3");
+
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -54,6 +56,8 @@ document.getElementById("guesses-left").innerHTML = lives;
 decreases the user lives by one if they guessed incorrectly and display it on
 the appropriate line in HTML
 TO DO - Prevent user from typing same letter twice*/
+
+
 function comparesLetters(letter) {
     var letterInWord = false;
 
@@ -62,7 +66,6 @@ function comparesLetters(letter) {
             letterInWord = true;
         }
     }
-
     if (letterInWord) {
         for(i = 0; i < numBlanks; i++) {
             if(randomCharacters[i] === letter) {
@@ -88,42 +91,28 @@ function roundComplete() {
     if(hiddenCharacters.join(" ") === blanks.join(" ")){
         wins++;
         document.getElementById("win-counter").innerHTML = wins;
+        winSound.play();
+        alert("Press any button to get the next word");
         startGame();
     } else if(lives === 0) {
-        document.getElementById("loss-counter").innerHTML = loss ++;
         document.getElementById("wrong-guesses").innerHTML = "";
-        alert("Game Over");
+        loseSound.play();
+        alert("Game Over - Press any button to try again!");
         startGame();
     }
 }
 //Starts the game!
 startGame();
+
 /*Take in the letter the user type in and pass it through the compareLetters
 function
 */
-
 document.onkeyup = function(event) {
     userInput = String.fromCharCode(event.keyCode).toUpperCase();
     console.log(userGuess);
-    console.log("This is the letter we are typing", userInput); 
-    comparesLetters(userInput); 
+    console.log("This is the letter we are typing", userInput);
+    comparesLetters(userInput);
     roundComplete();
-
-    //Come back to this to check for userInput does not equal guess input
-    // for (var i = 0; i < userGuess.length; i++) {
-    //     if (userGuess[i] === userInput) {
-    //         alert("Please input another letter");
-    //     } else {
-    //             userGuess.push(userInput);
-    //             console.log(userGuess);
-    //             console.log("This is the letter we are typing", userInput); 
-    //             comparesLetters(userInput); 
-    //             roundComplete();
-    //         }
-    //     }
     }
-
-    console.log(userGuess)
-
-
+    console.log(userGuess);
 

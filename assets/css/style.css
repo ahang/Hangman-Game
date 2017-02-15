@@ -1,13 +1,31 @@
 body {
 	background-image: url(../images/background.jpg);
+    font-family: 'Shadows Into Light Two', cursive;
+
 }
 
 .banner-image {
+    padding-top: 10px;
 	max-width: 100%;
 }
 
-.page-header h1 {
-	position: relative;
-	text-align: center;
+.words-subsection {
+    font-size: 40px;
+    height: 150px;
+    background: white;
+    opacity: .8;
+    border: 2px solid black;
+    padding-top: 25px;
+    margin-top: 25px;
+    text-align: center;
+    margin-right: 10px;
+}
 
+.words {
+    text-align: center;
+    font-size: 50px;
+
+    background: white;
+    border: 2px solid black;
+    margin: 10px;
 }
