@@ -38,6 +38,7 @@ function startGame() {
     console.log("This is the # of wrong guesses in startGame", wrongGuesses);
     lives = 10;
     blanks = [];
+    userGuess = [];
 
     randomCharacters = characters[Math.floor(Math.random() * characters.length)];
     hiddenCharacters = randomCharacters.split("");
