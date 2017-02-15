@@ -105,14 +105,19 @@ function roundComplete() {
 startGame();
 
 /*Take in the letter the user type in and pass it through the compareLetters
-function
+function. Also checks to make sure user is typing the appropriate keys and not using backspace or arrow keys
 */
 document.onkeyup = function(event) {
-    userInput = String.fromCharCode(event.keyCode).toUpperCase();
-    console.log(userGuess);
-    console.log("This is the letter we are typing", userInput);
-    comparesLetters(userInput);
-    roundComplete();
+    if ((event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122)) {
+        userInput = String.fromCharCode(event.keyCode).toUpperCase();
+        console.log(userGuess);
+        console.log("This is the letter we are typing", userInput);
+        comparesLetters(userInput);
+        roundComplete();
+    } else {
+        alert("Invalid Button Please use letters A-Z and 1-9");
     }
-    console.log(userGuess);
+}
+
+
 
