@@ -16,6 +16,7 @@ var hiddenCharacters = [];
 var numBlanks = 0;
 var blanks = [];
 var wrongGuesses = [];
+var userGuess = [];
 var userInput = "";
 
 var lives = 10;
@@ -109,6 +110,12 @@ function. Also checks to make sure user is typing the appropriate keys and not u
 document.onkeyup = function(event) {
     if ((event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122)) {
         userInput = String.fromCharCode(event.keyCode).toUpperCase();
+        // if(userInput === userGuess) {
+        //     alert("Please use another letter");
+        // } else {
+        //     userGuess += userInput
+        //     userInput.push(userGuess);
+        // }
         //console.log("This is the letter we are typing", userInput);
         comparesLetters(userInput);
         roundComplete();
