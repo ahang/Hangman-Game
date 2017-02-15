@@ -123,7 +123,7 @@ document.onkeyup = function(event) {
                 roundComplete();
                 if (wins > 3) {
                     themeSound.play();
-                    themeSound.volume = 0.5;
+                    themeSound.volume = 0.2;
                 }
             }
     } else {
