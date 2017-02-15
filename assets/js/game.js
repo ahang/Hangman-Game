@@ -122,6 +122,7 @@ document.onkeyup = function(event) {
                 roundComplete();
                 if (wins > 3) {
                     themeSound.play();
+                    themeSound.volume = 0.5;
                 } if (wins > 5) {
                     haloSound.play();
                 }
