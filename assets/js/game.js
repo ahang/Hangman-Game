@@ -5,7 +5,7 @@
 //               VARIABLES            ~
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 var characters = ["GENJI", "MCCREE", "PHARAH", "REAPER",
-                    "SOLIDER76", "SOMBRA", "TRACER",
+                    "SOLIDERSEVENTYSIX", "SOMBRA", "TRACER",
                 "BASTION", "HANZO","JUNKRAT", "MEI",
                 "TORBJORN", "WIDOWMAKER", "DVA",
                 "REINHARDT", "ROADHOG", "WINSTON",
@@ -16,7 +16,6 @@ var hiddenCharacters = [];
 var numBlanks = 0;
 var blanks = [];
 var wrongGuesses = [];
-var userGuess = [""];
 var userInput = "";
 
 var lives = 10;
@@ -49,7 +48,7 @@ function startGame() {
         blanks.push("_");
     }
 }
-console.log(blanks);
+//console.log(blanks);
 document.getElementById("word-blank").innerHTML = blanks.join(" ");
 document.getElementById("guesses-left").innerHTML = lives;
 /* Compares the letter user picked with letters of the selected word. Also,
@@ -86,8 +85,8 @@ function roundComplete() {
     document.getElementById("guesses-left").innerHTML = lives;
     document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
 
-    console.log(hiddenCharacters);
-    console.log(blanks);
+    //console.log(hiddenCharacters);
+    //console.log(blanks);
     if(hiddenCharacters.join(" ") === blanks.join(" ")){
         wins++;
         document.getElementById("win-counter").innerHTML = wins;
@@ -110,12 +109,11 @@ function. Also checks to make sure user is typing the appropriate keys and not u
 document.onkeyup = function(event) {
     if ((event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122)) {
         userInput = String.fromCharCode(event.keyCode).toUpperCase();
-        console.log(userGuess);
-        console.log("This is the letter we are typing", userInput);
+        //console.log("This is the letter we are typing", userInput);
         comparesLetters(userInput);
         roundComplete();
     } else {
-        alert("Invalid Button Please use letters A-Z and 1-9");
+        alert("Invalid Button Please use letters A-Z");
     }
 }
 
