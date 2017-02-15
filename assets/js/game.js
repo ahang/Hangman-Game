@@ -110,15 +110,17 @@ function. Also checks to make sure user is typing the appropriate keys and not u
 document.onkeyup = function(event) {
     if ((event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122)) {
         userInput = String.fromCharCode(event.keyCode).toUpperCase();
-        // if(userInput === userGuess) {
-        //     alert("Please use another letter");
-        // } else {
-        //     userGuess += userInput
-        //     userInput.push(userGuess);
-        // }
-        //console.log("This is the letter we are typing", userInput);
-        comparesLetters(userInput);
-        roundComplete();
+        //Checks if the userInput is in the userGuess Array
+        //If it exists do not allow user to input the same letter
+        //If it doesn't then push to userGuess array and complete the rest of the functions
+            if (userGuess.indexOf(userInput) >= 0) {
+                // already in array
+            } else {
+                // not in array
+                userGuess.push(userInput);
+                comparesLetters(userInput);
+                roundComplete();
+            }
     } else {
         alert("Invalid Button Please use letters A-Z");
     }
