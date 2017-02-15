@@ -24,7 +24,7 @@ var wins = 0;
 var loseSound = new Audio("assets/audio/ohno.mp3");
 var winSound = new Audio("assets/audio/yay.mp3");
 var themeSound = new Audio("assets/audio/theme.mp3");
-var haloSound = new Audio("assets/audio/halo.mp3");
+
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //               FUNCTIONS            ~
@@ -124,8 +124,6 @@ document.onkeyup = function(event) {
                 if (wins > 3) {
                     themeSound.play();
                     themeSound.volume = 0.5;
-                } if (wins > 5) {
-                    haloSound.play();
                 }
             }
     } else {
