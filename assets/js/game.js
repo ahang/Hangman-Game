@@ -5,7 +5,7 @@
 //               VARIABLES            ~
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 var characters = ["GENJI", "MCCREE", "PHARAH", "REAPER",
-                    "SOLIDERSEVENTYSIX", "SOMBRA", "TRACER",
+                    "SOLDIER76", "SOMBRA", "TRACER",
                 "BASTION", "HANZO","JUNKRAT", "MEI",
                 "TORBJORN", "WIDOWMAKER", "DVA",
                 "REINHARDT", "ROADHOG", "WINSTON",
@@ -109,7 +109,7 @@ startGame();
 function. Also checks to make sure user is typing the appropriate keys and not using backspace or arrow keys
 */
 document.onkeyup = function(event) {
-    if ((event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122)) {
+    if ((event.keyCode >= 65 && event.keyCode <= 90) || (event.keyCode >= 97 && event.keyCode <= 122) || (event.keyCode >= 48 && event.keyCode <= 57)) {
         userInput = String.fromCharCode(event.keyCode).toUpperCase();
         //Checks if the userInput is in the userGuess Array
         //If it exists do not allow user to input the same letter
